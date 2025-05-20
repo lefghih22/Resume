@@ -5,15 +5,17 @@
     <style>
       body {
         margin: 0 auto;
-        width: 600px; /* Fixed typo from è00px to 600px */
-        padding: 50px 0 100px 0; /* Top, right/left, bottom */
+        width: 600px;
+        padding: 50px 0 100px 0;
         font-family: "Courier New", Courier, monospace;
-        background-color: rgb(252, 247, 247);
+        background-color: #121212;
+        color: #ddd;
+        transition: background-color 0.5s ease, color 0.5s ease;
       }
 
       .profile-pic {
         display: block;
-        margin: 0 auto 60px auto; /* Increased bottom margin */
+        margin: 0 auto 60px auto;
         width: 350px;
         height: auto;
         border-radius: 10px;
@@ -46,11 +48,20 @@
       li {
         margin-bottom: 10px;
       }
+
+      #greeting {
+        text-align: center;
+        margin-bottom: 30px;
+        font-size: 20px;
+        font-weight: bold;
+      }
     </style>
   </head>
   <body>
-    <img
-      <img src="profilepic.jpeg" alt="Profile Picture" class="profile-pic" />
+    <img src="profilepic.jpeg" alt="Profile Picture" class="profile-pic" />
+
+    <div id="greeting"></div>
+
     <h1>Personal informations:</h1>
 
     <div class="container">
@@ -66,19 +77,39 @@
       <div class="right">
         <ul>
           <li>
-            <strong>Education:</strong> Karabuk University - Computer
-            Engineering
+            <strong>Education:</strong> Karabuk University - Computer Engineering
           </li>
           <li><strong>Skills:</strong> Java, JavaScript, C, HTML/CSS</li>
           <li>
-            <strong>Diplomas:</strong> Baccalaureate (2022), Turkish (2023),
-            English (2023)
+            <strong>Diplomas:</strong> Baccalaureate (2022), Turkish (2023), English (2023)
           </li>
           <li><strong>Languages:</strong> Arabic, Turkish, English, French</li>
           <li><strong>Hobbies:</strong> Football, Tennis, Table Tennis</li>
         </ul>
       </div>
     </div>
+
+    <script>
+      // Show greeting based on current time
+      function showGreeting() {
+        const greetingEl = document.getElementById('greeting');
+        const now = new Date();
+        const hour = now.getHours();
+        let greetingText = '';
+
+        if (hour < 12) {
+          greetingText = 'Good Morning!';
+        } else if (hour < 18) {
+          greetingText = 'Good Afternoon!';
+        } else {
+          greetingText = 'Good Evening!';
+        }
+
+        greetingEl.textContent = greetingText;
+      }
+
+      window.onload = showGreeting;
+    </script>
   </body>
-  <script src="javasc.js"></script>
 </html>
+
